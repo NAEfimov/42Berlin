@@ -6,22 +6,12 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:46:28 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/14 14:33:58 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/14 16:34:00 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
