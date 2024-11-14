@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:23:49 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/14 17:18:22 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/14 23:34:01 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,47 @@ void	ft_strtrim_test(void)
 		i++;
 	}	
 }
+void	ft_split_test(void)
+{
+	char			*s1[3] = {"  ", " 123  4567 890a", "AB5CD_5"};
+	char			*set = "a 5";
+	char			**split;
+	unsigned int	num = 3;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
+	
+	printf("\n---- <ft_split> ----\n\n");
+	i = 0;
+	while (i < num)
+	{
+		j = 0;
+		while (j < num)
+		{
+			printf("\n%d%d\n", i, j);
+			split = ft_split(s1[i], set[j]);
+			printf("ft_split('%s', '%c'):\n", s1[i], set[j]);
+			k = 0;
+			while (split[k] != NULL)
+			{
+				printf("%d: '%s'\n", k, split[k]);
+				free(split[k]);
+				k++;				
+			}
+			free(split[k]);
+			free(split);
+			j++;
+		}
+		i++;
+	}	
+}
 
 int	main(void)
 {
 	/* ft_substr_test();
-	ft_strjoin_test(); */
-	ft_strtrim_test();
+	ft_strjoin_test(); 
+	ft_strtrim_test(); */
+	ft_split_test();
+	
 	return (0);
 }
