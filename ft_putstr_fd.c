@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 15:21:09 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:28:59 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/12 16:33:39 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:21:44 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	len;
 
-	len = 0;
-	while (*(s + len))
-	{
-		len++;
-	}
-	return (len);
+	len = ft_strlen(s) + 1;
+	write(fd, s, len);
 }

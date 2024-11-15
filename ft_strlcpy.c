@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 15:21:09 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:28:59 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/12 18:51:07 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:28:26 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	len;
+	char		*d;
+	const char	*s;
 
-	len = 0;
-	while (*(s + len))
+	d = dst;
+	s = src;
+	while (*s)
 	{
-		len++;
+		if (size > 1)
+		{
+			*d++ = *s;
+			size--;
+		}
+		s++;
 	}
-	return (len);
+	if (size != 0)
+		*d = '\0';
+	return (s - src);
 }

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 15:21:09 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:28:59 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/13 16:42:48 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:29:42 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	len;
-
-	len = 0;
-	while (*(s + len))
+	if (*little == '\0')
+		return ((char *) big);
+	while (*big)
 	{
-		len++;
+		if (ft_strncmp(big, little, len) == 0)
+			return ((char *) big);
+		big++;
 	}
-	return (len);
+	return (NULL);
 }

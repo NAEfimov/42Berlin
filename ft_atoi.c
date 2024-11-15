@@ -1,43 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 13:46:28 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:33:31 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/13 17:22:10 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:15:26 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_isspace(char c)
 {
-	size_t		i;
-	size_t		cplen;
-	size_t		slen;
-	char		*fd;
+	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
+		|| c == '\v')
+		return (1);
+	return (0);
+}
 
-	slen = ft_strlen(s);
-	if (start > slen)
-		return (NULL);
-	cplen = 0;
-	while (s[start + cplen] && len > 0)
+int	ft_atoi(const char *nptr)
+{
+	int	num;
+	int	sign;
+
+	num = 0;
+	sign = 1;
+	while (ft_isspace(*nptr))
+		nptr++;
+	if ((*nptr == '+') || (*nptr == '-'))
 	{
-		cplen++;
-		len--;
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
 	}
-	fd = (char *) malloc((cplen + 1) * sizeof(char));
-	if (fd == NULL)
-		return (NULL);
-	i = 0;
-	while (i < cplen)
+	while (ft_isdigit(*nptr))
 	{
-		fd[i] = s[start + i];
-		i++;
+		num = num * 10 + (*nptr - '0');
+		nptr++;
 	}
-	fd[i] = '\0';
-	return (fd);
+	return (num * sign);
 }

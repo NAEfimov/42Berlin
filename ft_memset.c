@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 13:46:28 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:33:31 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/12 16:50:45 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:21:30 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t		i;
-	size_t		cplen;
-	size_t		slen;
-	char		*fd;
+	char	*p;
+	size_t	i;
 
-	slen = ft_strlen(s);
-	if (start > slen)
-		return (NULL);
-	cplen = 0;
-	while (s[start + cplen] && len > 0)
-	{
-		cplen++;
-		len--;
-	}
-	fd = (char *) malloc((cplen + 1) * sizeof(char));
-	if (fd == NULL)
-		return (NULL);
 	i = 0;
-	while (i < cplen)
+	p = (char *)s;
+	while (i < n)
 	{
-		fd[i] = s[start + i];
+		p[i] = (unsigned char)c;
 		i++;
 	}
-	fd[i] = '\0';
-	return (fd);
+	return (s);
 }

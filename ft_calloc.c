@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 13:46:28 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:33:31 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/13 18:30:49 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:18:53 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <limits.h>
+#include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t		i;
-	size_t		cplen;
-	size_t		slen;
-	char		*fd;
+	void	*p;
 
-	slen = ft_strlen(s);
-	if (start > slen)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
-	cplen = 0;
-	while (s[start + cplen] && len > 0)
-	{
-		cplen++;
-		len--;
-	}
-	fd = (char *) malloc((cplen + 1) * sizeof(char));
-	if (fd == NULL)
+	if (nmemb > INT_MAX / size)
 		return (NULL);
-	i = 0;
-	while (i < cplen)
-	{
-		fd[i] = s[start + i];
-		i++;
-	}
-	fd[i] = '\0';
-	return (fd);
+	p = malloc(nmemb * size);
+	if (p == NULL)
+		return (NULL);
+	p = ft_memset(p, '\0', nmemb * size);
+	return (p);
 }

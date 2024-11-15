@@ -5,58 +5,77 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 18:52:44 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/14 23:30:48 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/15 14:09:10 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:22:18 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
+
+unsigned int	words_count(char const *str, char c)
+{
+	unsigned int	i;
+	unsigned int	flag;
+	unsigned int	count;
+
+	i = 0;
+	flag = 1;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] != c && flag == 1)
+		{
+			flag = 0;
+			count++;
+		}
+		else if (str[i] == c && flag == 0)
+			flag = 1;
+		i++;
+	}
+	return (count);
+}
+
+char	**make_split(char const *str, char c, char	**split)
+{
+	unsigned int	i;
+	unsigned int	start;
+	unsigned int	flag;
+	char			**origin_p;
+
+	origin_p = split;
+	i = 0;
+	flag = 1;
+	while (str[i])
+	{
+		if (str[i] != c && flag == 1)
+		{
+			flag = 0;
+			start = i;
+		}
+		else if (str[i] == c && flag == 0)
+		{
+			flag = 1;
+			*split++ = ft_substr(str, start, (i - start));
+		}
+		i++;
+	}
+	*split++ = ft_substr(str, start, (i - start));
+	*split = NULL;
+	return (origin_p);
+}
 
 char	**ft_split(char const *s, char c)
 {
-	char			**split;
-	char			set[2];
-	char			*trimed;
-	unsigned int	in;
-	unsigned int	out;
 	unsigned int	count;
+	char const		*str;
+	char			set[2];
+	char			**split;
 
 	set[0] = c;
 	set[1] = '\0';
-	trimed = ft_strtrim(s, set);
-	//printf("trimed('%s', '%c'): '%s'\n", s, c, trimed);
-	out = 0;
-	// count number of 'char' inside the trimed string
-	count = 0;
-	while (trimed[out])
-	{
-		if (trimed[out] == c)
-			count++;
-		out++;
-	}
-	split = (char **) malloc((count + 2) * sizeof(char *));
-	if (split == NULL)
-		return (NULL);
-	count = 0;
-	in = 0;
-	out = 0;
-	while (trimed[out])
-	{
-		if (trimed[out] == c)
-		{
-			split[count] = ft_substr(trimed, in, out - in);
-			//printf("%d: '%s'\n", count, split[count]);
-			if (split[count] == NULL)
-				return (NULL);
-			count++;
-			in = out + 1; 
-		}
-		out++;
-	}
-	split[count] = ft_substr(trimed, in, out - in);
-	//printf("%d: '%s'\n", count, split[count]);
-	split[count + 1] = NULL;
-	return (split);
+	str = ft_strtrim(s, set);
+	count = words_count(str, c);
+	split = malloc((count + 1) * sizeof(char *));
+	return (make_split(str, c, split));
 }

@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 13:46:28 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:33:31 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/12 17:04:24 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/15 15:21:17 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t		i;
-	size_t		cplen;
-	size_t		slen;
-	char		*fd;
+	char	*s;
+	char	*d;
+	int		i;
 
-	slen = ft_strlen(s);
-	if (start > slen)
-		return (NULL);
-	cplen = 0;
-	while (s[start + cplen] && len > 0)
+	s = (char *)src;
+	d = (char *)dest;
+	if (s < d)
 	{
-		cplen++;
-		len--;
+		i = (int)n;
+		while (--i >= 0)
+			d[i] = s[i];
 	}
-	fd = (char *) malloc((cplen + 1) * sizeof(char));
-	if (fd == NULL)
-		return (NULL);
+	else
+	{
+		i = -1;
+		while (++i < (int)n)
+			d[i] = s[i];
+	}
 	i = 0;
-	while (i < cplen)
-	{
-		fd[i] = s[start + i];
-		i++;
-	}
-	fd[i] = '\0';
-	return (fd);
+	return (dest);
 }
