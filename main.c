@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:23:26 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 12:59:19 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 14:47:51 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -517,6 +517,28 @@ void	ft_itoa_test(void)
 		i++;
 	}
 }
+char	to_upper_if_even(unsigned int index, char c) {
+    if (index % 2 == 0)
+	{
+        return (ft_toupper(c));
+    }
+    return (c);
+}
+void	ft_strmapi_test(void)
+{
+	int		i;
+	char	*s[4] = {"","abcdefg","a1ff2g3h432dfgh", NULL};
+	char	*str;
+	
+	printf("\n---- <ft_strmapi> ----\n\n");
+	i = -1;
+	while (++i < 4)
+	{
+		str = ft_strmapi(s[i], to_upper_if_even);
+		printf("'%s' -> '%s'\n", s[i], str);
+		free(str);
+	}
+}
 int	main(void)
 {
 	/* ft_isalpha_test("1@[`{ahzATZ 	");
@@ -545,7 +567,9 @@ int	main(void)
 	ft_substr_test();
 	ft_strjoin_test(); 
 	ft_strtrim_test(); 
-	ft_split_test(); */
-	ft_itoa_test();
+	ft_split_test(); 
+	ft_itoa_test(); */
+	ft_strmapi_test();
+	
 	return (0);
 }
