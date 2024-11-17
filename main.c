@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:23:26 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 14:47:51 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 17:11:27 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -535,8 +535,33 @@ void	ft_strmapi_test(void)
 	while (++i < 4)
 	{
 		str = ft_strmapi(s[i], to_upper_if_even);
-		printf("'%s' -> '%s'\n", s[i], str);
+		printf("%p '%s' -> %p '%s'\n", s[i], s[i], str, str);
 		free(str);
+	}
+}
+void	to_upper_if_not_even(unsigned int i, char *s)
+{
+	//printf("i: %d; s[i] = %c\n", i, s[i]);
+	if (i % 2 != 0)
+		s[i] = ft_toupper(s[i]);
+    return;
+}
+
+void	ft_striteri_test(void)
+{
+	int		i;
+	char	*s[3] = {"","abcdefg","a1ff2g3h432dfgh"};
+	char	str[30];
+	
+	
+	printf("\n---- <ft_striteri> ----\n\n");
+	i = -1;
+	while (++i < 3)
+	{
+		ft_strlcpy(str, s[i], 30);
+		printf("'%s'\n", str);
+		ft_striteri(str, to_upper_if_not_even);
+		printf("'%s'\n", str);
 	}
 }
 int	main(void)
@@ -568,8 +593,9 @@ int	main(void)
 	ft_strjoin_test(); 
 	ft_strtrim_test(); 
 	ft_split_test(); 
-	ft_itoa_test(); */
-	ft_strmapi_test();
+	ft_itoa_test(); 
+	ft_strmapi_test(); */
+	ft_striteri_test();
 	
 	return (0);
 }
