@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:23:26 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 17:11:27 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 20:26:43 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -564,6 +564,22 @@ void	ft_striteri_test(void)
 		printf("'%s'\n", str);
 	}
 }
+void	ft_putchar_fd_test()
+{
+	
+}
+void	ft_putendl_fd_test()
+{
+	
+}
+void	ft_putnbr_fd_test()
+{
+	
+}
+void	ft_putstr_fd_test()
+{
+	
+}
 int	main(void)
 {
 	/* ft_isalpha_test("1@[`{ahzATZ 	");
@@ -594,8 +610,12 @@ int	main(void)
 	ft_strtrim_test(); 
 	ft_split_test(); 
 	ft_itoa_test(); 
-	ft_strmapi_test(); */
-	ft_striteri_test();
+	ft_strmapi_test();
+	ft_striteri_test(); */
+	ft_putchar_fd_test(); \
+	ft_putendl_fd_test(); \
+	ft_putnbr_fd_test(); \
+	ft_putstr_fd_test(); \
 	
 	return (0);
 }

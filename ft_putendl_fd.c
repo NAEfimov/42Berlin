@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:59:45 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 20:01:00 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 21:01:27 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (s == NULL)
-		return;
+		return ;
 	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 13:14:21 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 14:22:31 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 21:03:09 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
 	size_t	i;
-	
+
 	if (s == NULL || f == NULL)
 		return (NULL);
 	str = malloc((ft_strlen(s) + 1) * sizeof(char));

@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:35:35 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 18:09:57 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 21:00:37 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <limits.h>
 #include <stdio.h>
 
-int		digit_count(int	num)
+int	digit_count(int num)
 {
 	int	i;
 
@@ -23,7 +23,7 @@ int		digit_count(int	num)
 		return (1);
 	i = 0;
 	if (num < 0)
-		i = 1; 
+		i = 1;
 	while (num != 0)
 	{
 		i++;
@@ -38,7 +38,6 @@ void	add_digits(int n, char **s, int sign)
 	{
 		add_digits(n / 10, s, sign);
 		**s = sign * (n % 10) + '0';
-		// printf("*s: %p -> '%c'\n", *s, **s);
 		*s = *s + 1;
 	}
 }
@@ -49,11 +48,11 @@ char	*ft_itoa(int n)
 	int		len;
 	char	*str;
 	char	*s;
-	
+
 	len = digit_count(n) + 1;
 	str = malloc(len * sizeof(char));
 	if (str == NULL)
-		return NULL;
+		return (NULL);
 	ft_bzero(str, len);
 	s = str;
 	sign = 1;
