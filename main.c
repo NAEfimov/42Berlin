@@ -6,15 +6,17 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:23:26 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 18:07:17 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 12:59:19 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "libft.a"
 #include "libft.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <limits.h>
 
 void	ft_isalpha_test(char *str)
