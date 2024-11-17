@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 16:33:39 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 19:57:29 by nefimov          ###   ########.fr       */
+/*   Created: 2024/11/17 20:03:53 by nefimov           #+#    #+#             */
+/*   Updated: 2024/11/17 20:06:54 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (s == NULL)
+	char	*str;
+	
+	str = ft_itoa(n);
+	if (str == NULL)
 		return;
-	while (*s)
-	{
-		write(fd, s, 1);
-		s++;
-	}
+	write(fd, &str, ft_strlen(str));
+	free(str);
+	return;
 }
