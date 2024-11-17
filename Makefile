@@ -29,7 +29,6 @@ SRCS		=		\
 	ft_memcpy.c		\
 	ft_memmove.c 	\
 	ft_memset.c		\
-	ft_putstr_fd.c	\
 	ft_split.c		\
 	ft_strchr.c		\
 	ft_strdup.c		\
@@ -89,6 +88,10 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info CREATED $@)
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 -include $(DEPS)
 

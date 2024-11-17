@@ -6,13 +6,14 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:30:49 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:18:53 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/17 22:08:23 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
