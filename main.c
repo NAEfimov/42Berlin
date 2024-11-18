@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:23:26 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 20:26:43 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/18 19:25:20 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,8 +268,8 @@ void	ft_strrchr_test(void)
 }
 void	ft_strncmp_test(void)
 {
-	const char 	*str1 = "12d456789";
-	const char 	*str2 = "12abcdef";
+	const char 	*str1 = "12axcvb";
+	const char 	*str2 = "12a";
 	size_t		n[] = {0, 1, 2, 3, 9, 1000000};
 	int			i = 0;
 	
@@ -321,12 +321,12 @@ void	ft_memcmp_test(void)
 }
 void	ft_strnstr_test(void)
 {
-	const char 	*str1 = "12d456789";
-	const char 	*str2 = "2d45678900";
-	size_t		n[] = {0, 1, 2, 3, 14, 1000000};
+	const char 	*str1 = "lorem ipsum dolor sit amet";
+	const char 	*str2 = "lorem ";
+	size_t		n[] = {0, 1, 5, 6, 1000000};
 	int			i = 0;
 	
-	printf("\n--- <ft_strnstr> ---\n\n");
+	printf("\n--- <li> ---\n\n");
 	printf("big:\t\t\t%s\n", str1);
 	printf("little:\t\t\t%s\n", str2);
 	printf("*big:\t\t\t%p\n\n", str1);
@@ -359,15 +359,15 @@ void	ft_calloc_test(void)
 {
 	void	*str;
 	char	*s;
-	size_t		num;
+	//size_t		num;
 	
-	printf("\n--- <ft_atoi> ---\n\n");
-	num = 10;
-	str = ft_calloc(num, sizeof(char));
+	printf("\n--- <ft_calloc> ---\n\n");
+	//num = 0;
+	str = ft_calloc(0, 0/* sizeof(char) */);
 	s = (char *) str;
 	s[0] = 'a';
 	s[2] = 'b';
-	printf("srt: %s\n", (char *) str);
+	printf("%p ;srt: %s\n",str, (char *) str);
 	free(str);
 }
 void	ft_strdup_test(void)
@@ -597,12 +597,12 @@ int	main(void)
 	ft_toupper_test("1aAbBcDxYzZ@[]`{");
 	ft_tolower_test("1aAbBcDxYzZ@[]`{");
 	ft_strchr_test();
-	ft_strrchr_test(); 
+	ft_strrchr_test(); */
 	ft_strncmp_test(); 
-	ft_memchr_test(); 
-	ft_memcmp_test(); 
+	/*ft_memchr_test(); 
+	ft_memcmp_test(); */
 	ft_strnstr_test();	
-	ft_atoi_test();	
+	/*ft_atoi_test();
 	ft_calloc_test();  
 	ft_strdup_test();
 	ft_substr_test();
@@ -611,11 +611,11 @@ int	main(void)
 	ft_split_test(); 
 	ft_itoa_test(); 
 	ft_strmapi_test();
-	ft_striteri_test(); */
-	ft_putchar_fd_test(); \
-	ft_putendl_fd_test(); \
-	ft_putnbr_fd_test(); \
-	ft_putstr_fd_test(); \
+	ft_striteri_test(); 
+	ft_putchar_fd_test(); 
+	ft_putendl_fd_test();
+	ft_putnbr_fd_test();
+	ft_putstr_fd_test(); */
 	
 	return (0);
 }

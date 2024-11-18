@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:03:49 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 21:54:26 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/18 12:57:55 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	const unsigned char	*s;
 	unsigned char		*d;
-	size_t	i;
+	size_t				i;
 
 	if (src == NULL || dest == NULL)
 		return (NULL);

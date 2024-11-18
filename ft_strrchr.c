@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:53:09 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:30:07 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/18 19:31:19 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		str++;
 	while (str >= s)
 	{
-		if (*str == (char) c)
+		if (*str == (unsigned char) c)
 			return ((char *) str);
 		str--;
 	}

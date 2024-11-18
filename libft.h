@@ -6,14 +6,13 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:04:45 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 22:21:36 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/18 13:28:55 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-#include <stddef.h>
+# include <stddef.h>
 
 typedef struct s_list
 {
@@ -45,6 +44,7 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strnstr(const char *big, const char *little,
 					size_t len);
 int				ft_atoi(const char *nptr);
+int				ft_isspace(char c);
 void			*ft_calloc(size_t nmemb, size_t size);
 char			*ft_strdup(const char *s);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
