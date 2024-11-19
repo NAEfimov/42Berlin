@@ -6,14 +6,13 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:16:18 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:19:29 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:18:33 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isalpha(int c)
 {
+	c = c % 256;
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1);
 	else

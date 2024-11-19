@@ -6,16 +6,15 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:35:35 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 21:00:37 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 18:57:17 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 #include <limits.h>
-#include <stdio.h>
 
-int	digit_count(int num)
+int	char_count(int num)
 {
 	int	i;
 
@@ -49,7 +48,7 @@ char	*ft_itoa(int n)
 	char	*str;
 	char	*s;
 
-	len = digit_count(n) + 1;
+	len = char_count(n) + 1;
 	str = malloc(len * sizeof(char));
 	if (str == NULL)
 		return (NULL);

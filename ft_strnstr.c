@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:42:48 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/18 19:27:21 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 17:06:02 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,19 @@ int	ft_strncmp_in(const char *s1, const char *s2, size_t n)
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	if (*little == '\0')
+	size_t	lit_len;
+
+	lit_len = ft_strlen(little);
+	if (lit_len == 0)
 		return ((char *) big);
-	while (*big)
+	if (len == 0)
+		return (NULL);
+	while (*big && len > 0 && len >= lit_len)
 	{
 		if (ft_strncmp_in(big, little, len) == 0)
 			return ((char *) big);
 		big++;
+		len--;
 	}
 	return (NULL);
 }

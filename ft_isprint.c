@@ -6,14 +6,13 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:03:25 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:20:08 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:18:45 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isprint(int c)
 {
+	c = c % 256;
 	if (c >= 32 && c <= 126)
 		return (1);
 	else

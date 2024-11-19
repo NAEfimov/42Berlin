@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:23:26 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/18 19:25:20 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 18:38:18 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -464,10 +464,10 @@ void	ft_strtrim_test(void)
 }
 void	ft_split_test(void)
 {
-	char			*s1[3] = {"  ", " 123  4567 890a", "AB5CD_5"};
-	char			*set = "a 5";
+	char			*s1[3] = {"12345678", "          ", " 123  4567 890a"};
+	char			*set = " 5a";
 	char			**split;
-	unsigned int	num = 3;
+	unsigned int	num = 1;
 	unsigned int	i;
 	unsigned int	j;
 	unsigned int	k;
@@ -482,14 +482,17 @@ void	ft_split_test(void)
 			printf("\n%d%d\n", i, j);
 			split = ft_split(s1[i], set[j]);
 			printf("ft_split('%s', '%c'):\n", s1[i], set[j]);
-			k = 0;
-			while (split[k] != NULL)
-			{
-				printf("%d: '%s'\n", k, split[k]);
+			if (split != NULL)
+			{	
+				k = 0;
+				while (split[k] != NULL)
+				{
+					printf("%d: '%s'\n", k, split[k]);
+					free(split[k]);
+					k++;				
+				}
 				free(split[k]);
-				k++;				
 			}
-			free(split[k]);
 			free(split);
 			j++;
 		}
@@ -546,11 +549,14 @@ void	to_upper_if_not_even(unsigned int i, char *s)
 		s[i] = ft_toupper(s[i]);
     return;
 }
-
+void	iter(unsigned int i, char * s)
+{
+	*s += i;
+}
 void	ft_striteri_test(void)
 {
 	int		i;
-	char	*s[3] = {"","abcdefg","a1ff2g3h432dfgh"};
+	char	*s[3] = {"","0000000000","a1ff2g3h432dfgh"};
 	char	str[30];
 	
 	
@@ -560,7 +566,7 @@ void	ft_striteri_test(void)
 	{
 		ft_strlcpy(str, s[i], 30);
 		printf("'%s'\n", str);
-		ft_striteri(str, to_upper_if_not_even);
+		ft_striteri(str, iter/* to_upper_if_not_even */);
 		printf("'%s'\n", str);
 	}
 }
@@ -582,40 +588,40 @@ void	ft_putstr_fd_test()
 }
 int	main(void)
 {
-	/* ft_isalpha_test("1@[`{ahzATZ 	");
-	ft_isdigit_test("/059:");	
-	ft_isalnum_test("1@[`{ahzATZ \t/059:");
-	ft_isascii_test("भा!1~");
-	ft_isprint_test();
-	ft_strlen_test();
-	ft_memset_test();
-	ft_bzero_test();
-	ft_memcpy_test();
-	ft_memmove_test(); 
-	ft_strlcat_test(); 
-	ft_strlcpy_test(); 
-	ft_toupper_test("1aAbBcDxYzZ@[]`{");
-	ft_tolower_test("1aAbBcDxYzZ@[]`{");
-	ft_strchr_test();
-	ft_strrchr_test(); */
-	ft_strncmp_test(); 
-	/*ft_memchr_test(); 
-	ft_memcmp_test(); */
-	ft_strnstr_test();	
-	/*ft_atoi_test();
-	ft_calloc_test();  
-	ft_strdup_test();
-	ft_substr_test();
-	ft_strjoin_test(); 
-	ft_strtrim_test(); 
+	// ft_isalpha_test("1@[`{ahzATZ 	");
+	// ft_isdigit_test("/059:");	
+	// ft_isalnum_test("1@[`{ahzATZ \t/059:");
+	// ft_isascii_test("भा!1~");
+	// ft_isprint_test();
+	// ft_strlen_test();
+	// ft_memset_test();
+	// ft_bzero_test();
+	// ft_memcpy_test();
+	// ft_memmove_test(); 
+	// ft_strlcat_test(); 
+	// ft_strlcpy_test(); 
+	// ft_toupper_test("1aAbBcDxYzZ@[]`{");
+	// ft_tolower_test("1aAbBcDxYzZ@[]`{");
+	// ft_strchr_test();
+	// ft_strrchr_test();
+	// ft_strncmp_test(); 
+	// ft_memchr_test(); 
+	// ft_memcmp_test();
+	// ft_strnstr_test();	
+	// ft_atoi_test();
+	// ft_calloc_test();  
+	// ft_strdup_test();
+	// ft_substr_test();
+	// ft_strjoin_test(); 
+	// ft_strtrim_test(); 
 	ft_split_test(); 
-	ft_itoa_test(); 
-	ft_strmapi_test();
-	ft_striteri_test(); 
-	ft_putchar_fd_test(); 
-	ft_putendl_fd_test();
-	ft_putnbr_fd_test();
-	ft_putstr_fd_test(); */
+	// ft_itoa_test(); 
+	// ft_strmapi_test();
+	// ft_striteri_test(); 
+	// ft_putchar_fd_test(); 
+	// ft_putendl_fd_test();
+	// ft_putnbr_fd_test();
+	// ft_putstr_fd_test();
 	
 	return (0);
 }

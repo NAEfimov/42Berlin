@@ -6,12 +6,40 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:09:10 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:22:18 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:01:49 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+void	clear_split(char	**split, unsigned int count)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		free(split[i]);
+		i++;
+	}
+}
+
+char	**clear_split_check(char	**split, unsigned int count)
+{
+	unsigned int	i;
+
+	while (++i < count)
+	{
+		if (split[i] == NULL)
+		{
+			clear_split(split, count);
+			split = NULL;
+			break ;
+		}
+	}
+	return (split);
+}
 
 unsigned int	words_count(char const *str, char c)
 {
@@ -36,14 +64,12 @@ unsigned int	words_count(char const *str, char c)
 	return (count);
 }
 
-char	**make_split(char const *str, char c, char	**split)
+void	make_split(char const *str, char c, char	**split)
 {
 	unsigned int	i;
 	unsigned int	start;
 	unsigned int	flag;
-	char			**origin_p;
 
-	origin_p = split;
 	i = 0;
 	flag = 1;
 	while (str[i])
@@ -62,13 +88,12 @@ char	**make_split(char const *str, char c, char	**split)
 	}
 	*split++ = ft_substr(str, start, (i - start));
 	*split = NULL;
-	return (origin_p);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	unsigned int	count;
-	char const		*str;
+	char			*str;
 	char			set[2];
 	char			**split;
 
@@ -77,5 +102,12 @@ char	**ft_split(char const *s, char c)
 	str = ft_strtrim(s, set);
 	count = words_count(str, c);
 	split = malloc((count + 1) * sizeof(char *));
-	return (make_split(str, c, split));
+	if (split == NULL)
+		return (NULL);
+	if (count == 0)
+		*split = NULL;
+	else
+		make_split(str, c, split);
+	free(str);
+	return (clear_split_check(split, count));
 }

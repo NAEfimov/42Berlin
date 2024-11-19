@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:30:49 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/18 18:56:04 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 18:53:51 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	p = malloc(nmemb * size);
 	if (p == NULL)
 		return (NULL);
-	p = ft_memset(p, '\0', nmemb * size);
+	ft_bzero(p, nmemb * size);
 	return (p);
 }

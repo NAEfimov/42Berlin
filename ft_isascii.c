@@ -6,14 +6,13 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 19:50:52 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:19:46 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:18:38 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isascii(int c)
 {
+	c = c % 256;
 	if (c >= 0 && c <= 127)
 		return (1);
 	else

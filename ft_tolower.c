@@ -6,11 +6,9 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:37:06 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/17 14:39:46 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:19:06 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int c)
 {

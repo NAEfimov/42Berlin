@@ -6,12 +6,11 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 19:08:11 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:29:09 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:03:27 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

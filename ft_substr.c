@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:46:28 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:33:31 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 16:38:10 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	slen = ft_strlen(s);
 	if (start > slen)
-		return (NULL);
+		return (ft_strdup(""));
 	cplen = 0;
 	while (s[start + cplen] && len > 0)
 	{

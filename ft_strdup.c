@@ -6,13 +6,12 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:58:00 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/15 15:26:46 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:02:16 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-//#include <stdio.h>
 
 char	*ft_strdup(const char *s)
 {
