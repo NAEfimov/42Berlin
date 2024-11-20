@@ -89,10 +89,6 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info CREATED $@)
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
 -include $(DEPS)
 
 clean:
