@@ -6,26 +6,44 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:09:10 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/20 17:49:09 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/20 18:46:04 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-/* static void	clear_split(char	**split)
+void	clear_split(char **split, unsigned int count)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (split[i] != NULL)
+	while (i < count)
 	{
-		free(split[i]);
+		if (split[i] != NULL)
+			free(split[i]);
 		i++;
 	}
-	free(split[i]);
+	//free(split[i]);
 }
- */
+
+static int	check_split(char **split, unsigned int count)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		if (split[i] == NULL)
+		{
+			clear_split(split, count);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
 static unsigned int	words_count(char const *str, char c)
 {
 	unsigned int	i;
@@ -35,17 +53,15 @@ static unsigned int	words_count(char const *str, char c)
 	i = 0;
 	flag = 1;
 	count = 0;
-	while (str[i] == c)
-		i++;
 	while (str[i])
 	{
 		if (str[i] != c && flag == 1)
-		{
 			flag = 0;
+		else if (str[i] == c && flag == 0)
+		{
+			flag = 1;
 			count++;
 		}
-		else if (str[i] == c && flag == 0)
-			flag = 1;
 		i++;
 	}
 	if (flag == 0)
@@ -61,8 +77,6 @@ static void	make_split(char const *str, char c, char **split)
 
 	i = 0;
 	flag = 1;
-	while (str[i] && str[i] == c)
-		i++;
 	while (str[i])
 	{
 		if (str[i] != c && flag == 1)
@@ -74,15 +88,11 @@ static void	make_split(char const *str, char c, char **split)
 		{
 			flag = 1;
 			*split++ = ft_substr(str, start, (i - start));
-			if (*split - 1 == NULL)
-			return ;
 		}
 		i++;
 	}
 	if (flag == 0)	
 		*split++ = ft_substr(str, start, (i - start));
-	if (*split - 1 == NULL)
-		return ;
 	*split = NULL;
 }
 
@@ -99,5 +109,10 @@ char	**ft_split(char const *s, char c)
 		*split = NULL;
 	else
 		make_split(s, c, split);
+	if (check_split(split, count) != 0)
+	{
+		free(split);
+		split = NULL;
+	}
 	return (split);
 }
