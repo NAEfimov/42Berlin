@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 20:03:53 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/18 13:10:35 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/20 13:12:32 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void	add_digits(int n, char **s, int sign)
+static void	add_digits(int n, char **s, int sign)
 {
 	if (n != 0)
 	{

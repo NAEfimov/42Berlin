@@ -6,14 +6,14 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:09:10 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/19 19:01:49 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/20 13:13:05 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	clear_split(char	**split, unsigned int count)
+static void	clear_split(char	**split, unsigned int count)
 {
 	unsigned int	i;
 
@@ -25,7 +25,7 @@ void	clear_split(char	**split, unsigned int count)
 	}
 }
 
-char	**clear_split_check(char	**split, unsigned int count)
+static char	**clear_split_check(char	**split, unsigned int count)
 {
 	unsigned int	i;
 
@@ -41,7 +41,7 @@ char	**clear_split_check(char	**split, unsigned int count)
 	return (split);
 }
 
-unsigned int	words_count(char const *str, char c)
+static unsigned int	words_count(char const *str, char c)
 {
 	unsigned int	i;
 	unsigned int	flag;
@@ -64,7 +64,7 @@ unsigned int	words_count(char const *str, char c)
 	return (count);
 }
 
-void	make_split(char const *str, char c, char	**split)
+static void	make_split(char const *str, char c, char	**split)
 {
 	unsigned int	i;
 	unsigned int	start;

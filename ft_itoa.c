@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:35:35 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/19 18:57:17 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/20 13:11:55 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int	char_count(int num)
+static int	char_count(int num)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ int	char_count(int num)
 	return (i);
 }
 
-void	add_digits(int n, char **s, int sign)
+static void	add_digits(int n, char **s, int sign)
 {
 	if (n != 0)
 	{

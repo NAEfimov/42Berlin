@@ -6,13 +6,13 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:22:10 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/19 18:52:11 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/20 13:11:21 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
 		|| c == '\v')

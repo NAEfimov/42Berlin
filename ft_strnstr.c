@@ -6,13 +6,13 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:42:48 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/19 17:06:02 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/20 13:13:44 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp_in(const char *s1, const char *s2, size_t n)
+static int	ft_strncmp_in(const char *s1, const char *s2, size_t n)
 {
 	while (n > 0 && *s1 && *s2)
 	{
