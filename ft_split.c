@@ -6,41 +6,26 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:09:10 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/20 13:13:05 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/20 17:49:09 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static void	clear_split(char	**split, unsigned int count)
+/* static void	clear_split(char	**split)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (i < count)
+	while (split[i] != NULL)
 	{
 		free(split[i]);
 		i++;
 	}
+	free(split[i]);
 }
-
-static char	**clear_split_check(char	**split, unsigned int count)
-{
-	unsigned int	i;
-
-	while (++i < count)
-	{
-		if (split[i] == NULL)
-		{
-			clear_split(split, count);
-			split = NULL;
-			break ;
-		}
-	}
-	return (split);
-}
-
+ */
 static unsigned int	words_count(char const *str, char c)
 {
 	unsigned int	i;
@@ -50,6 +35,8 @@ static unsigned int	words_count(char const *str, char c)
 	i = 0;
 	flag = 1;
 	count = 0;
+	while (str[i] == c)
+		i++;
 	while (str[i])
 	{
 		if (str[i] != c && flag == 1)
@@ -61,10 +48,12 @@ static unsigned int	words_count(char const *str, char c)
 			flag = 1;
 		i++;
 	}
+	if (flag == 0)
+		count++;
 	return (count);
 }
 
-static void	make_split(char const *str, char c, char	**split)
+static void	make_split(char const *str, char c, char **split)
 {
 	unsigned int	i;
 	unsigned int	start;
@@ -72,6 +61,8 @@ static void	make_split(char const *str, char c, char	**split)
 
 	i = 0;
 	flag = 1;
+	while (str[i] && str[i] == c)
+		i++;
 	while (str[i])
 	{
 		if (str[i] != c && flag == 1)
@@ -83,31 +74,30 @@ static void	make_split(char const *str, char c, char	**split)
 		{
 			flag = 1;
 			*split++ = ft_substr(str, start, (i - start));
+			if (*split - 1 == NULL)
+			return ;
 		}
 		i++;
 	}
-	*split++ = ft_substr(str, start, (i - start));
+	if (flag == 0)	
+		*split++ = ft_substr(str, start, (i - start));
+	if (*split - 1 == NULL)
+		return ;
 	*split = NULL;
 }
 
 char	**ft_split(char const *s, char c)
 {
 	unsigned int	count;
-	char			*str;
-	char			set[2];
 	char			**split;
 
-	set[0] = c;
-	set[1] = '\0';
-	str = ft_strtrim(s, set);
-	count = words_count(str, c);
+	count = words_count(s, c);
 	split = malloc((count + 1) * sizeof(char *));
 	if (split == NULL)
 		return (NULL);
 	if (count == 0)
 		*split = NULL;
 	else
-		make_split(str, c, split);
-	free(str);
-	return (clear_split_check(split, count));
+		make_split(s, c, split);
+	return (split);
 }
