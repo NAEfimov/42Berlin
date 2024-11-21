@@ -96,7 +96,9 @@ $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	$(info CREATED $(NAME))
 
-bonus: $(NAME) $(OBJS_B)
+bonus: $(OBJS) $(OBJS_B)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_B)
+	$(info CREATED $(NAME))
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
