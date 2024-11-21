@@ -1,5 +1,4 @@
 NAME        = libft.a
-NAME_B		= libft.a
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -97,10 +96,7 @@ $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	$(info CREATED $(NAME))
 
-bonus: $(NAME_B)
-$(NAME_B): $(OBJS) $(OBJS_B)
-	$(AR) $(ARFLAGS) $(NAME_B) $(OBJS) $(OBJS_B)
-	$(info CREATED $(NAME_B))
+bonus: $(NAME) $(OBJS_B)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
