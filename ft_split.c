@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:09:10 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/20 18:46:04 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/21 17:08:44 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	clear_split(char **split, unsigned int count)
 			free(split[i]);
 		i++;
 	}
-	//free(split[i]);
 }
 
 static int	check_split(char **split, unsigned int count)
@@ -91,7 +90,7 @@ static void	make_split(char const *str, char c, char **split)
 		}
 		i++;
 	}
-	if (flag == 0)	
+	if (flag == 0)
 		*split++ = ft_substr(str, start, (i - start));
 	*split = NULL;
 }
