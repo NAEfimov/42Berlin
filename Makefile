@@ -1,4 +1,5 @@
 NAME        = libft.a
+NAME_B		= libft.a
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -12,7 +13,7 @@ NAME        = libft.a
 # CFLAGS    compiler flags
 # CPPFLAGS  preprocessor flags
 
-SRCS		=		\
+SRCS		:=		\
 	ft_atoi.c 		\
 	ft_bzero.c 		\
 	ft_calloc.c 	\
@@ -48,8 +49,21 @@ SRCS		=		\
 	ft_putnbr_fd.c 	\
 	ft_putstr_fd.c
 
+SRCS_B		=			\
+	ft_lstnew.c			\
+	ft_lstadd_front.c	\
+	ft_lstsize.c		\
+	ft_lstlast.c		\
+	ft_lstadd_back.c	\
+	ft_lstdelone.c		\
+	ft_lstclear.c		\
+	ft_lstiter.c		\
+	ft_lstmap.c
+
 OBJS		:= $(SRCS:%.c=%.o)
+OBJS_B		:= $(SRCS_B:%.c=%.o)
 DEPS		:= $(OBJS:.o=.d)
+DEPS_B		:= $(OBJS_B:.o=.d)
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
@@ -83,14 +97,19 @@ $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	$(info CREATED $(NAME))
 
+bonus: $(NAME_B)
+$(NAME_B): $(OBJS) $(OBJS_B)
+	$(AR) $(ARFLAGS) $(NAME_B) $(OBJS) $(OBJS_B)
+	$(info CREATED $(NAME_B))
+
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info CREATED $@)
 
--include $(DEPS)
+-include $(DEPS) $(DEPS_B)
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS) $(DEPS) $(OBJS_B) $(DEPS_B)
 
 fclean: clean
 	$(RM) $(NAME)
