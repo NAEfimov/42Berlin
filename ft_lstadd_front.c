@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:08:49 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/21 13:13:46 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/21 17:36:49 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst != NULL && new != NULL)
+	if (!new)
+		return ;
+	if (!*lst)
 	{
-		new->next = *lst;
+		new->next = NULL;
 		*lst = new;
+		return ;
 	}
+	new->next = *lst;
+	*lst = new;
 }
