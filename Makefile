@@ -1,12 +1,10 @@
-NAME        := libft.a
+NAME        = libft.a
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
 #------------------------------------------------#
-# SRC_DIR   source directory
 # SRCS      source files
 #
-# BUILD_DIR object directory
 # OBJS      object files
 # DEPS      dependency files
 #
@@ -97,4 +95,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all 
+re:
+	$(MAKE) fclean
+	$(MAKE) all
