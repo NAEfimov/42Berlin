@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:22:38 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/21 18:14:38 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/22 12:10:40 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
-	while (lst->next)
+	while (lst && lst->next)
 		lst = lst->next;
 	return (lst);
 }

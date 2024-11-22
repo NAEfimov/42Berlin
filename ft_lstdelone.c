@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:02:30 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/21 17:53:03 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/22 11:34:24 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (del == NULL || lst == NULL)
+	if (!del)
 		return ;
-	del(lst->content);
-	free(lst);
+	if (lst)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

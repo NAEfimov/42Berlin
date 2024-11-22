@@ -6,7 +6,7 @@
 /*   By: nefimov <nefimov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:03:33 by nefimov           #+#    #+#             */
-/*   Updated: 2024/11/21 18:14:01 by nefimov          ###   ########.fr       */
+/*   Updated: 2024/11/22 11:57:31 by nefimov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list	*next;
 	t_list	*cur;
 
-	if (!del || !lst)
+	if (!del || !lst || !*lst)
 		return ;
 	cur = *lst;
 	while (cur)
 	{
 		next = cur->next;
-		del(cur->content);
-		free(cur);
+		ft_lstdelone(cur, del);
 		cur = next;
 	}
 	*lst = NULL;
